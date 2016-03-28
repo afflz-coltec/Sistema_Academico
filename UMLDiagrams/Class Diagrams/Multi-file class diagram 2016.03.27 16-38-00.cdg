@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="Aluno" package="" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="media_geral" type="int" visibility="private"/>
+        <Field name="freq_geral" type="int" visibility="private"/>
+        <Field name="notas" type="grade_notas" visibility="private"/>
+        <Field name="info" type="cadastro_aluno" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Mostrar_notas" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Coordenador" package="" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="principal" type="Professor" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Alocar_professor" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Curso" package="" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="materias" type="Diciplina[]" visibility="private"/>
+        <Field name="codigo" type="String" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="coordenardor" type="Coordenador" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Diciplina" package="" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="codigo" type="String" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="carga_horaria" type="int" visibility="private"/>
+        <Field name="ementa" type="String" visibility="private"/>
+        <Field name="req" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Professor" package="" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="info" type="cadastro_professor" visibility="private"/>
+        <Field name="aulas" type="aula" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RH" package="" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="corpo_docente" type="Professor[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="contrata_professor" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="Secretaria" package="" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="matricula_aluno" returnType="void" visibility="public"/>
+        <Method name="Emitir_diarios" returnType="void" visibility="public"/>
+        <Method name="emitir_historico" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Turma" package="" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="estudantes" type="Aluno[]" visibility="private"/>
+        <Field name="m_frequencias" type="int" visibility="private"/>
+        <Field name="m_notas" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="media_freq" returnType="void" visibility="public"/>
+        <Method name="media_nota" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="aula" package="" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="Semestre" type="int" visibility="private"/>
+        <Field name="ano" type="int" visibility="private"/>
+        <Field name="horarios_semanais" type="boolean[][]" visibility="private"/>
+        <Field name="d" type="Diciplina" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="mandar_notas" returnType="void" visibility="public"/>
+        <Method name="mandar_freq" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="base" package="" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="cadastro" package="" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="nome" type="String" visibility="private"/>
+        <Field name="adress" type="String" visibility="private"/>
+        <Field name="telefone" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="cadastro_aluno" package="" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="curso" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="cadastro_professor" package="" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="grade_notas" package="" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="notas" type="int[]" visibility="private"/>
+        <Field name="frequencias" type="int[]" visibility="private"/>
+        <Field name="media" type="Object" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="aprov" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="cadastro_aluno" target="cadastro"/>
+    <IsRelation name="is" source="cadastro_professor" target="cadastro"/>
+    <IsRelation name="is" source="Coordenador" target="Professor"/>
+    <HasRelation name="aulas" source="Professor" target="aula" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="principal" source="Coordenador" target="Professor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="d" source="aula" target="Diciplina" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="info" source="Aluno" target="cadastro_aluno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="info" source="Professor" target="cadastro_professor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="coordenardor" source="Curso" target="Coordenador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="notas" source="Aluno" target="grade_notas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
