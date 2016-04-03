@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Syscad_base">
+  <ClassDiagramComponents>
+    <Class name="Escola" package="" visibility="public" xPosition="204.0" yPosition="40.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="RH" package="" visibility="public" xPosition="204.0" yPosition="182.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Secretaria" package="" visibility="public" xPosition="484.0" yPosition="40.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Professor" package="" visibility="public" xPosition="80.0" yPosition="335.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Coordenador" package="" visibility="public" xPosition="310.0" yPosition="335.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Professor" target="Coordenador"/>
+    <HasRelation name="_" source="RH" target="Coordenador" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="_" source="Escola" target="Secretaria" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="_" source="RH" target="Professor" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="-" source="Escola" target="RH" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

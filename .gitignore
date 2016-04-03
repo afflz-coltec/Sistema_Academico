@@ -46,3 +46,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /Syscad/nbproject/private/
+/Syscad/build/
+/Syscad_JAVA/nbproject/private/
+/Syscad_JAVA/build/
+/Syscad_JAVA/dist/
